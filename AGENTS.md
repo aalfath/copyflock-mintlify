@@ -18,7 +18,7 @@
 - These docs are about CopyFlock only. Never mention other products, brands or the infrastructure behind CopyFlock.
 - Only document what the dashboard actually does. Check the UI labels and behavior in the `copyflock.com-frontend` repo before writing, and don't copy marketing claims without verifying them.
 - Don't promise prop firm compliance. CopyFlock doesn't read or enforce firm rules.
-- Prices, trial terms and limits must match the site: $8 per account per month or $80 per year, minimum 2 accounts, maximum 200, 7-day free trial on 2 accounts with a card, followers copy a fixed 1 contract during the trial.
+- Prices, trial terms and limits must match the site (`src/config/site.ts` in the frontend): Starter $29/month or $290/year for up to 10 accounts, Pro $49/$490 for up to 20, Unlimited $99/$990 (fair use up to 200). The lead counts as an account. 7-day free trial on 2 accounts with a card; followers copy a fixed 1 contract during the trial.
 
 ## Terminology
 
