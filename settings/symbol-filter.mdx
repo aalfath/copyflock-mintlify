@@ -1,0 +1,34 @@
+---
+title: "Symbol filter"
+description: "Choose which markets a follower copies: every symbol, only a list you choose, or everything except a list."
+icon: "filter"
+---
+
+The **Symbol filter** decides which of the lead's markets a follower copies.
+
+| Option | What the follower copies |
+| --- | --- |
+| **Copy every symbol** | All of the lead's trades. This is the default. |
+| **Copy only these symbols** | Only the symbols you list. |
+| **Copy every symbol except these** | Everything except the symbols you list. |
+
+## Enter symbols
+
+Type the symbols separated by commas, for example `MNQ, MES`.
+
+Use the contract's root, such as `MNQ`. It matches every contract month, such as `MNQZ6`.
+
+## Examples
+
+- **A follower that should only trade the indices you're approved for:** choose **Copy only these symbols** and enter `NQ, MNQ, ES, MES`.
+- **Keep crude oil off a small account:** choose **Copy every symbol except these** and enter `CL, MCL`.
+- **Sit out a news event on one market:** add that market to the exception list for the day, or [pause the follower](/dashboard/managing-accounts#pause-and-resume-copying).
+
+## With symbol mapping
+
+If the follower also uses [symbol mapping](/settings/symbol-mapping), the filter checks both the lead's symbol and the mapped one. For example, with a mapping of NQ → MNQ:
+
+- In **Copy only these symbols**, listing either `NQ` or `MNQ` lets the trade through.
+- In **Copy every symbol except these**, listing either `NQ` or `MNQ` skips the trade.
+
+If in doubt, place a small test trade and check the [logs](/dashboard/logs).

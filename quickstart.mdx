@@ -1,47 +1,64 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Create your CopyFlock account, start the free trial, connect a lead and a follower, and copy your first trade."
+icon: "rocket"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+Most traders are copying in less than 3 minutes. You need:
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+- The login details for at least two futures accounts: one to lead and one to follow.
+- A payment card to start the 7-day free trial. You're not charged if you cancel before it ends.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Create your account">
+    Go to [copyflock.com/signup](https://copyflock.com/signup) and enter your email. Open the link we email you and choose a password.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+  <Step title="Start your free trial">
+    On the **Billing** page, choose **Monthly** or **Yearly** and how many accounts you want. Then click **Start 7-day free trial** and enter your card details.
 
-    ```bash
-    your-cli init
-    ```
+    The trial covers 2 accounts, enough for a lead and one follower. See [Free trial and pricing](/billing/free-trial).
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+  <Step title="Add your lead account">
+    Go to **Accounts** and click **Add account**. Choose **Lead account**, then pick the platform and connect:
 
-    ```bash
-    your-cli start
-    ```
+    - **Tradovate**: sign in on Tradovate's page. [Details](/connect/tradovate)
+    - **Rithmic**: enter your username, password and system. [Details](/connect/rithmic)
+    - **TopstepX**: enter your username and ProjectX API key. [Details](/connect/topstepx)
+
+    Pick the trading account, give it a name such as "Apex 1", and click **Create account**.
+  </Step>
+  <Step title="Add a follower">
+    Click **Add account** again. Choose **Follower account** and pick the lead it should copy. Connect the follower the same way.
+
+    On the **Copy settings** step, the defaults copy the lead at the same size, with its stop loss and take profit. You can change them later. See [Copy settings](/settings/position-size).
+  </Step>
+  <Step title="Wait for both accounts to start">
+    New accounts take a minute or two to connect. When the status shows **Copying**, you're ready.
+  </Step>
+  <Step title="Place a test trade">
+    During market hours, place a 1-contract trade on the lead and close it a minute later. Then check:
+
+    - The [logs](/dashboard/logs) show the entry and the exit on the follower.
+    - The follower's size is what you expected.
+    - The stop loss and take profit appear on the follower, if you copy them.
+    - The follower is flat again afterwards.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+<Note>
+  During the free trial, every follower copies a fixed 1 contract per trade, whatever sizing you choose. Your sizing takes effect once your paid plan starts.
+</Note>
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+## Before you trade full size
+
+<AccordionGroup>
+  <Accordion title="Check your prop firm's rules" icon="scale-balanced">
+    Make sure your firm allows trade copiers and copying between your own accounts. See [Prop firm rules](/guides/prop-firm-rules).
+  </Accordion>
+  <Accordion title="Set a maximum size on every follower" icon="arrow-up-wide-short">
+    Set **Max contracts** to the account's contract limit so a large lead trade never oversizes a follower. See [Position size](/settings/position-size#minimum-and-maximum-contracts).
+  </Accordion>
+  <Accordion title="Turn on account protection" icon="shield-halved">
+    Close a follower's positions and pause it before it breaks its drawdown limit. See [Account protection](/settings/account-protection).
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,67 @@
+---
+title: "Copy minis to micros (NQ to MNQ)"
+sidebarTitle: "Minis to micros"
+description: "Copy a lead that trades NQ or ES to followers that trade MNQ or MES, and choose how much exposure each follower takes."
+icon: "arrow-down-short-wide"
+---
+
+A common setup is a lead that trades minis and followers that trade micros, so smaller accounts carry less risk. CopyFlock doesn't convert minis to micros on its own. You set it up per follower with [symbol mapping](/settings/symbol-mapping).
+
+## Micros are one tenth of minis
+
+| Market | Mini | Micro | Same exposure |
+| --- | --- | --- | --- |
+| Nasdaq-100 | NQ, \$20 per point | MNQ, \$2 per point | 10 MNQ = 1 NQ |
+| S&P 500 | ES, \$50 per point | MES, \$5 per point | 10 MES = 1 ES |
+| Dow | YM, \$5 per point | MYM, \$0.50 per point | 10 MYM = 1 YM |
+| Russell 2000 | RTY, \$50 per point | M2K, \$5 per point | 10 M2K = 1 RTY |
+| Gold | GC, 100 oz | MGC, 10 oz | 10 MGC = 1 GC |
+| Crude oil | CL, 1,000 barrels | MCL, 100 barrels | 10 MCL = 1 CL |
+
+So 1 NQ copied as 10 MNQ gives the follower the same dollar exposure as the lead. 1 NQ copied as 1 MNQ gives one tenth.
+
+## Set it up
+
+<Steps>
+  <Step title="Open the follower's settings">
+    On the **Accounts** page, open the follower and go to the **Settings** tab.
+  </Step>
+  <Step title="Add the mapping">
+    Under **Symbol mapping**, click the **NQ → MNQ ×10** preset, or click **Add mapping** and enter **NQ** and **MNQ**.
+  </Step>
+  <Step title="Choose the multiplier">
+    ×10 matches the lead's exposure. Lower it to reduce risk: ×5 is half, ×2 is one fifth, ×1 is one tenth.
+  </Step>
+  <Step title="Set a maximum">
+    Set **Max contracts** to the most micros this account should ever hold, for example 20.
+  </Step>
+  <Step title="Add other markets">
+    Add ES → MES or any other pair you trade. Markets without a mapping are copied as the same contract.
+  </Step>
+  <Step title="Save and test">
+    Click **Save changes**, wait for the follower to restart, then trade 1 NQ on the lead and check the follower's size in the [logs](/dashboard/logs).
+  </Step>
+</Steps>
+
+<Info>
+  The mapping's multiplier replaces the follower's sizing method for that symbol. With NQ → MNQ ×5, the follower always trades 5 MNQ per NQ on the lead, whatever sizing method it uses.
+</Info>
+
+## Example: a 100K lead with three micro followers
+
+The lead trades NQ. It buys 2 NQ, then takes 1 NQ off at the first target.
+
+| Follower | Mapping | Max contracts | Entry | Partial exit | Left open |
+| --- | --- | --- | --- | --- | --- |
+| 50K account | NQ → MNQ ×5 | 15 | 10 MNQ | 5 MNQ | 5 MNQ |
+| 25K account | NQ → MNQ ×2 | 6 | 4 MNQ | 2 MNQ | 2 MNQ |
+| 25K account in drawdown | NQ → MNQ ×1 | 3 | 2 MNQ | 1 MNQ | 1 MNQ |
+
+Whole-number multipliers mean partial exits on the lead turn into whole micro contracts on every follower.
+
+## Things to watch
+
+- **Rounding.** Every result is a whole number of contracts. Fractional multipliers such as ×2.5 can round in ways you don't expect with small trades.
+- **Micros to minis is harder.** You can map MNQ → NQ ×0.1, but 5 MNQ becomes half an NQ. Only do this if the lead always trades in multiples of ten.
+- **Prop firm limits.** Your firm may count micros differently towards position limits. Check before choosing a multiplier.
+- **Brackets follow the mapping.** With **Copy stop loss** and **Copy take profit** on, the follower's stop and target are placed on the micro contract.

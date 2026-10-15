@@ -1,0 +1,74 @@
+---
+title: "Troubleshooting"
+description: "Fixes for the most common CopyFlock problems: trades that didn't copy, wrong sizes, accounts that won't connect and followers out of step with the lead."
+icon: "triangle-exclamation"
+---
+
+Start with the [logs](/dashboard/logs). Most problems show up there with a reason.
+
+## A follower didn't copy a trade
+
+Check these in order:
+
+<AccordionGroup>
+  <Accordion title="The follower is paused" icon="pause">
+    Open the follower on the **Accounts** page. If it shows **Paused**, you or [account protection](/settings/account-protection) paused it. Check its balance and limits, then click **Resume copying**.
+  </Accordion>
+  <Accordion title="The follower isn't connected" icon="plug-circle-xmark">
+    If it shows **Disconnected**, **Stopped** or **Starting**, it couldn't copy. Wait a minute, or click **Restart**. See [Account status](/dashboard/managing-accounts#account-status).
+  </Accordion>
+  <Accordion title="The symbol is filtered out" icon="filter">
+    Check the follower's [symbol filter](/settings/symbol-filter). The symbol may not be on its **Copy only these symbols** list, or may be on its exceptions list.
+  </Accordion>
+  <Accordion title="The trade had no stop loss or take profit" icon="shield">
+    If **Skip trades without a stop loss** or **Skip trades without a take profit** is on, trades without them aren't copied. See [Order settings](/settings/orders).
+  </Accordion>
+  <Accordion title="The size rounded to zero" icon="calculator">
+    Sizes under half a contract are skipped. With fixed risk sizing, a trade is skipped if 1 contract would risk more than your budget. Set **Min contracts** to 1 if the follower should always take part. See [Rounding](/settings/position-size#rounding).
+  </Accordion>
+  <Accordion title="The follower was restarting" icon="rotate">
+    Lead trades placed while a follower restarts aren't copied late. This happens briefly after you save new settings or click **Restart**.
+  </Accordion>
+  <Accordion title="Your subscription isn't active" icon="credit-card">
+    If your trial or subscription has ended or a payment failed, nothing copies. Check the **Billing** page.
+  </Accordion>
+</AccordionGroup>
+
+## A follower traded the wrong size
+
+Check, in this order:
+
+1. **The free trial.** During the trial, every follower trades 1 contract. See [Free trial](/billing/free-trial).
+2. **The sizing method and its number.** See [Position size](/settings/position-size).
+3. **Symbol mapping.** A mapping's multiplier replaces the sizing method for that symbol. See [Symbol mapping](/settings/symbol-mapping).
+4. **Min and max contracts.**
+5. **Rounding.** Sizes round to whole contracts, which explains most small differences.
+
+Equity ratio sizes also change as balances move.
+
+## A follower is out of step with the lead
+
+This usually happens after you change something on the follower by hand, or when the follower was offline while the lead traded.
+
+- If the follower still holds a position the lead has closed, turn on [Position resync](/settings/orders#position-resync), or close it with [Close all positions](/dashboard/managing-accounts#close-all-positions).
+- If you closed a follower's position by hand, it stays closed. It joins in again with the lead's next trade.
+
+## A follower's price is different from the lead's
+
+Each follower's order is sent after the lead fills, so fill prices can differ slightly, especially with market orders in fast markets. A [random delay](/settings/orders#random-delay) makes the difference bigger.
+
+## An account won't connect
+
+- **Tradovate:** see [Connect a Tradovate account](/connect/tradovate).
+- **Rithmic:** see [If the connection fails](/connect/rithmic#if-the-connection-fails). If you changed your password, see [Update your Rithmic password](/connect/rithmic#update-your-rithmic-password).
+- **TopstepX:** see [If the connection fails](/connect/topstepx#if-the-connection-fails).
+
+## I can't add another account
+
+If every seat is in use, add seats on the **Billing** page. See [Change the number of accounts](/billing/manage-subscription#change-the-number-of-accounts). During the trial, you can use 2 accounts.
+
+You can't add a follower until you've added a lead.
+
+## Still stuck?
+
+[Contact support](/support). Tell us the account names involved, roughly when it happened, and what you expected to see.

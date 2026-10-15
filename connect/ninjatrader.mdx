@@ -1,0 +1,36 @@
+---
+title: "NinjaTrader accounts"
+sidebarTitle: "NinjaTrader"
+description: "Copy NinjaTrader brokerage and prop firm accounts with CopyFlock. No NinjaTrader add-on, and NinjaTrader doesn't need to be running."
+icon: "link"
+---
+
+CopyFlock doesn't install anything in NinjaTrader. It connects to the account that NinjaTrader trades on, so you keep charting and trading in NinjaTrader exactly as you do today.
+
+Copying runs on our servers. It keeps going if NinjaTrader is closed, updating or crashes.
+
+## Which connection to use
+
+Connect the account where it actually lives:
+
+| Your account | Add it in CopyFlock as | What you need |
+| --- | --- | --- |
+| NinjaTrader brokerage account | [Tradovate](/connect/tradovate) | Sign in on Tradovate's page with that account's login |
+| Prop firm account on Tradovate | [Tradovate](/connect/tradovate) | Sign in on Tradovate's page with that account's login |
+| Prop firm account with a Rithmic login, such as Apex or Bulenox | [Rithmic](/connect/rithmic) | Rithmic username, password and system from your firm |
+| Topstep account on TopstepX | [TopstepX](/connect/topstepx) | TopstepX username and a ProjectX API key |
+
+<Tip>
+  Not sure which one you have? In NinjaTrader, open the **Connections** menu. If the account uses a Rithmic connection, add it as Rithmic. If you sign in to NinjaTrader or Tradovate with one login, add it as Tradovate.
+</Tip>
+
+## What's not supported
+
+- **NinjaTrader simulation accounts** (Sim101 and playback). They only exist inside NinjaTrader, so they can't be copied.
+- **Other connections**, such as CQG. Quantower and Volumetrica accounts aren't supported either.
+
+## Stops, targets and ATM strategies
+
+With **Copy stop loss** and **Copy take profit** on, the stop and target from your ATM strategy bracket are copied to followers as regular orders. The ATM strategy itself stays in NinjaTrader.
+
+Watch the [logs](/dashboard/logs) on your first few trades to check that followers handle your bracket style the way you expect.

@@ -1,0 +1,81 @@
+---
+title: "Position size"
+description: "Choose how many contracts each follower trades: same as the lead, a multiple, a fixed number, scaled by account size, or sized by risk."
+icon: "scale-balanced"
+---
+
+Each follower has its own **Position size** settings. You choose them when you add the follower, and you can change them any time in the account's **Settings** tab.
+
+<Note>
+  During the free trial, every follower copies a fixed **1 contract** per trade, whatever you choose here. Your sizing takes effect once your paid plan starts.
+</Note>
+
+## Sizing methods
+
+| Sizing method | How it works | Example: lead buys 4 MES |
+| --- | --- | --- |
+| **Contract multiplier** | Lead's contracts × your multiplier. This is the default, at 1. | Multiplier 0.5 → 2 MES |
+| **Fixed contracts** | Always the same number of contracts. | Fixed 1 → 1 MES |
+| **Equity ratio** | Scales by the follower's equity compared with the lead's. | Follower has half the lead's equity → 2 MES |
+| **Equity ratio × multiplier** | Equity ratio first, then multiplied by your multiplier. | Half the equity, multiplier 2 → 4 MES |
+| **Fixed risk (% of equity)** | Sizes from the stop loss so each trade risks about this % of the follower's equity. | 0.5% of \$50,000 = about \$250 at risk |
+| **Fixed risk (amount)** | Sizes from the stop loss so each trade risks about this dollar amount. | About \$200 at risk |
+
+### Which one should I use?
+
+- **All your accounts are the same size:** Contract multiplier at 1.
+- **A follower is half the lead's size:** Contract multiplier at 0.5, or Equity ratio.
+- **Accounts of different sizes that change over time:** Equity ratio.
+- **A follower should always trade the same amount:** Fixed contracts.
+- **You think in dollars at risk:** Fixed risk (% of equity) or Fixed risk (amount).
+
+### Equity ratio methods
+
+These use each account's live equity, so follower sizes change as balances move. For example, if the lead has \$100,000 and buys 4 MES:
+
+- A follower with \$50,000 buys 2 MES.
+- A follower with \$25,000 buys 1 MES.
+- A follower with \$10,000 gets 0.4 contracts, which is under half a contract, so the trade is skipped. Set **Min contracts** to 1 if it should still take part.
+
+### Fixed risk methods
+
+CopyFlock works out the dollar risk per contract from the distance between the lead's entry and its stop loss, then picks the number of contracts that fits your risk budget.
+
+- Sizes always round **down**, so a copy never risks more than your budget. If even 1 contract would risk too much, the trade is skipped.
+- **These methods need a stop loss on the lead's order.** If the lead's trade has no stop loss, the follower trades 1 contract. To skip those trades instead, turn on [Skip trades without a stop loss](/settings/orders#skip-trades-without-a-stop-loss-or-take-profit).
+
+<Accordion title="Worked example: fixed risk on NQ">
+  NQ moves \$20 per point per contract. The lead buys 2 NQ with a stop 20 points away, so each contract risks 20 × \$20 = \$400.
+
+  - A follower with **Fixed risk (amount)** of \$400 buys 1 NQ.
+  - A follower with **Fixed risk (amount)** of \$800 buys 2 NQ.
+  - A follower with **Fixed risk (amount)** of \$300 skips the trade, because 1 contract would risk more than \$300.
+</Accordion>
+
+## Rounding
+
+Futures trade in whole contracts, so every size is rounded:
+
+- Sizes round to the **nearest** whole contract, and halves round up. For example, 1.4 becomes 1, and 1.5 becomes 2.
+- Anything **under half a contract** is skipped.
+- Fixed risk methods always round **down**.
+
+Rounding matters most with small trades. If a follower's multiplier is 0.5 and the lead trades 1 contract, the follower also trades 1 contract (0.5 rounds up), not half the lead's size. If the multiplier is 0.4, the follower skips the trade. For small trades, use Fixed contracts or set **Min contracts** to 1.
+
+## Minimum and maximum contracts
+
+**Min contracts** and **Max contracts** are limits applied after the sizing method, to every trade on this follower.
+
+- **Max contracts** stops a follower from ever trading more than this, even if you size up on the lead. Set it to the account's contract limit.
+- **Min contracts** makes the follower trade at least this many, including trades that would otherwise be skipped for being too small.
+
+Leave either one empty for no limit.
+
+<Tip>
+  Set **Max contracts** on every follower. It's the simplest protection against a typo or an oversized trade on the lead.
+</Tip>
+
+## Related settings
+
+- To trade a different contract from the lead, such as MNQ instead of NQ, see [Symbol mapping](/settings/symbol-mapping).
+- To close positions and pause a follower at a balance or equity level, see [Account protection](/settings/account-protection).

@@ -1,0 +1,89 @@
+---
+title: "Connect a Rithmic account"
+sidebarTitle: "Rithmic"
+description: "Connect Apex, Bulenox, Earn2Trade, Tradeify and other Rithmic accounts to CopyFlock with your Rithmic username, password and system."
+icon: "link"
+---
+
+Rithmic accounts connect with your Rithmic username, password and **system**. The system is the name you pick from a list when you log in to R|Trader Pro, such as **Apex**.
+
+These are the same details your prop firm or broker sent you, and the same ones you enter in R|Trader Pro or in NinjaTrader's Rithmic connection.
+
+## Before you start
+
+- **Find your Rithmic login details.** Your firm emails them to you and tells you which system to choose.
+- **Log in to R|Trader Pro once.** New Rithmic logins have agreements to accept before they can connect. If you haven't accepted them yet, log in to R|Trader Pro, accept them, then come back.
+
+## Connect the account
+
+<Steps>
+  <Step title="Start adding an account">
+    In the dashboard, go to **Accounts** and click **Add account**. Choose **Lead account** or **Follower account** and click **Continue**.
+  </Step>
+  <Step title="Choose Rithmic">
+    Select **Rithmic**.
+  </Step>
+  <Step title="Enter your details">
+    Pick your **System**, then enter your Rithmic **Username** and **Password**. Click **Connect Rithmic**.
+  </Step>
+  <Step title="Pick the trading account">
+    Choose the account you want to add. If your firm reports an auto-liquidation level, it's shown next to the account.
+  </Step>
+  <Step title="Finish">
+    For a follower, choose its [copy settings](/settings/position-size). Then name the account and click **Create account**.
+  </Step>
+</Steps>
+
+## Systems known to work
+
+- **Apex**: Apex Trader Funding accounts. See [Copy across Apex accounts](/guides/apex-accounts).
+- **Bulenox**
+- **Earn2Trade**
+- **TheTradingPit**
+- **Tradeify**
+- **Rithmic 01**: brokerage accounts on Rithmic's main live system.
+- **Rithmic Paper Trading**: useful for testing your setup without risking money.
+
+The **System** list in the dashboard shows every system you can choose. If your firm uses a system that isn't listed, [contact support](/support).
+
+## Good to know
+
+- **R|Trader Pro can stay open.** You can keep watching or trading in R|Trader Pro or NinjaTrader while CopyFlock is connected.
+- **One connection per login.** If several of your accounts share one Rithmic login, CopyFlock uses a single connection for all of them. When you add another account from the same login, pick it from the list instead of connecting again.
+- **Password changes.** If your Rithmic password changes, the account disconnects. See [Update your Rithmic password](#update-your-rithmic-password).
+- **Why a password?** Rithmic doesn't offer a "Sign in with" option, so CopyFlock needs your username and password to connect. They are sent over an encrypted connection and used only to connect your account for copying.
+
+## Update your Rithmic password
+
+You don't need to remove your accounts when your Rithmic password changes.
+
+<Steps>
+  <Step title="Save the new password">
+    Click **Add account**, choose **Rithmic**, and enter the same system and username with your new password. Click **Connect Rithmic**. This saves the new password for that login. You can then click **Cancel**. You don't need to add the account again.
+  </Step>
+  <Step title="Restart the accounts on that login">
+    Open each account that uses this login and click **Restart**. See [Managing accounts](/dashboard/managing-accounts#restart-an-account).
+  </Step>
+</Steps>
+
+If you see a message that the login is in use, [contact support](/support).
+
+## If the connection fails
+
+<AccordionGroup>
+  <Accordion title="Rithmic rejected this username or password">
+    Check the username, password and system. They must match exactly what you use in R|Trader Pro.
+  </Accordion>
+  <Accordion title="This login still has agreements to sign">
+    Log in to R|Trader Pro once, accept the agreements, then try again.
+  </Accordion>
+  <Accordion title="Rithmic refused a new session because one is already open">
+    This login is already connected to CopyFlock. If its accounts are listed, pick the account from the list instead of connecting again.
+  </Accordion>
+  <Accordion title="Too many connection attempts">
+    Wait a minute, then try again.
+  </Accordion>
+  <Accordion title="Rithmic did not respond">
+    Rithmic may be busy or down for maintenance. Try again in a moment.
+  </Accordion>
+</AccordionGroup>

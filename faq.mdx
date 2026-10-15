@@ -1,0 +1,117 @@
+---
+title: "Frequently asked questions"
+sidebarTitle: "FAQ"
+description: "Answers to common questions about CopyFlock: platforms, setup, copying and sizing, prop firms, pricing and security."
+icon: "circle-question"
+---
+
+## Getting started
+
+<AccordionGroup>
+  <Accordion title="What does CopyFlock do?">
+    CopyFlock is a cloud futures trade copier. You trade one lead account, and CopyFlock copies each trade to your follower accounts in real time, sized by each follower's own settings. See [How CopyFlock works](/how-it-works).
+  </Accordion>
+  <Accordion title="Do I need to install anything?">
+    No. You connect accounts in your browser and copying runs on our servers. There's no NinjaTrader add-on, desktop app or VPS.
+  </Accordion>
+  <Accordion title="Does my computer need to stay on?">
+    No. Copying keeps going when your computer is off. You only need a browser to change settings or check the dashboard.
+  </Accordion>
+  <Accordion title="How long does setup take?">
+    Most traders connect a lead and a few followers in less than 3 minutes. Place a 1-contract test trade before trading full size. See the [Quickstart](/quickstart).
+  </Accordion>
+  <Accordion title="Can I trade the lead from any app?">
+    Yes. CopyFlock watches the lead account itself, so orders from NinjaTrader, R|Trader Pro, the Tradovate apps, TopstepX or any other app connected to that account are copied.
+  </Accordion>
+  <Accordion title="Can I have more than one lead?">
+    Yes. Each follower copies one lead, but you can run several leads, each with its own followers.
+  </Accordion>
+</AccordionGroup>
+
+## Platforms
+
+<AccordionGroup>
+  <Accordion title="Which platforms are supported?">
+    Tradovate (including NinjaTrader brokerage accounts), Rithmic and TopstepX. CQG, Quantower and Volumetrica aren't supported.
+  </Accordion>
+  <Accordion title="What about NinjaTrader?">
+    NinjaTrader brokerage accounts connect as Tradovate. Prop firm accounts you trade in NinjaTrader with a Rithmic login connect as Rithmic. NinjaTrader doesn't need to be running. See [NinjaTrader accounts](/connect/ninjatrader).
+  </Accordion>
+  <Accordion title="Can I copy across platforms?">
+    Yes, in any direction between Tradovate, Rithmic and TopstepX. See [Copy trades across platforms](/guides/cross-platform).
+  </Accordion>
+  <Accordion title="Can I copy my NinjaTrader simulation account?">
+    No. Sim101 and playback accounts only exist inside NinjaTrader. Use a funded, evaluation or brokerage account as the lead.
+  </Accordion>
+  <Accordion title="Do I need to pay for API access?">
+    Not for Tradovate or Rithmic. TopstepX accounts need a ProjectX API subscription, billed by ProjectX.
+  </Accordion>
+</AccordionGroup>
+
+## Copying and sizing
+
+<AccordionGroup>
+  <Accordion title="Which sizing methods are there?">
+    Contract multiplier, fixed contracts, equity ratio, equity ratio × multiplier, fixed risk (% of equity) and fixed risk (amount). Every result is rounded to whole contracts. See [Position size](/settings/position-size).
+  </Accordion>
+  <Accordion title="Can followers trade micros when the lead trades minis?">
+    Yes, with symbol mapping. Map NQ to MNQ on a follower and set a multiplier, for example ×10 for the same exposure. See [Copy minis to micros](/guides/minis-to-micros).
+  </Accordion>
+  <Accordion title="Are stop losses and take profits copied?">
+    Yes, when **Copy stop loss** and **Copy take profit** are on, which they are by default. You can also skip trades that don't have them. See [Order settings](/settings/orders).
+  </Accordion>
+  <Accordion title="Will followers get exactly the lead's price?">
+    Not always. Each follower's order is sent after the lead fills, so prices can differ slightly, especially with market orders in fast markets.
+  </Accordion>
+  <Accordion title="What happens if I close a follower position by hand?">
+    It stays closed, and the follower joins in again with the lead's next trade.
+  </Accordion>
+  <Accordion title="Is there a daily loss limit or trading hours setting?">
+    No. Use [account protection](/settings/account-protection) and pausing instead.
+  </Accordion>
+  <Accordion title="Why does every follower trade 1 contract?">
+    You're on the free trial. During the trial, followers copy a fixed 1 contract per trade. Your sizing takes effect once your paid plan starts.
+  </Accordion>
+</AccordionGroup>
+
+## Prop firms
+
+<AccordionGroup>
+  <Accordion title="Is copy trading allowed by prop firms?">
+    It depends on the firm and the account type, and rules change. Many futures firms allow copying between accounts you own, but always check your firm's current rules. See [Prop firm rules](/guides/prop-firm-rules).
+  </Accordion>
+  <Accordion title="Which prop firms work with CopyFlock?">
+    Firms whose accounts run on Tradovate, Rithmic or TopstepX, including Apex, Topstep, Tradeify, Bulenox, Earn2Trade and TheTradingPit. CopyFlock isn't affiliated with or endorsed by any firm.
+  </Accordion>
+  <Accordion title="Can I copy across different prop firms?">
+    Yes. One lead can copy to followers at several firms and on different platforms.
+  </Accordion>
+</AccordionGroup>
+
+## Pricing and billing
+
+<AccordionGroup>
+  <Accordion title="How much does CopyFlock cost?">
+    \$8 per account per month, or \$80 per account per year, with a minimum of 2 accounts. See [Free trial and pricing](/billing/free-trial).
+  </Accordion>
+  <Accordion title="Does the lead account count?">
+    Yes. Every connected account, lead or follower, counts as one.
+  </Accordion>
+  <Accordion title="How does the free trial work?">
+    7 days free on 2 accounts. A card is required. Cancel before the trial ends and you're not charged.
+  </Accordion>
+  <Accordion title="Can I cancel any time?">
+    Yes. Your subscription ends at the end of the current billing period. See [Manage your subscription](/billing/manage-subscription#cancel-your-subscription).
+  </Accordion>
+</AccordionGroup>
+
+## Security
+
+<AccordionGroup>
+  <Accordion title="Does CopyFlock see my passwords?">
+    Not for Tradovate, which uses Tradovate's own sign-in page, or TopstepX, which uses an API key. Rithmic has no sign-in page for other apps, so CopyFlock needs your Rithmic username and password. They're sent over an encrypted connection and used only to connect your account for copying. See the [privacy policy](https://copyflock.com/privacy).
+  </Accordion>
+  <Accordion title="Does CopyFlock give trading advice or signals?">
+    No. CopyFlock only copies trades you place on your own lead account. Futures trading carries substantial risk. Read the [risk disclaimer](https://copyflock.com/risk-disclaimer).
+  </Accordion>
+</AccordionGroup>

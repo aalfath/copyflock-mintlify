@@ -1,0 +1,55 @@
+---
+title: "Prop firm rules and copy trading"
+sidebarTitle: "Prop firm rules"
+description: "What to check in your prop firm's rules before you copy trades, and which CopyFlock settings help you stay inside them."
+icon: "scale-balanced"
+---
+
+Before you copy trades across prop firm accounts, check what your firm allows. Rules differ between firms and between evaluation and funded accounts, and they change over time.
+
+This page is general information, not legal or compliance advice. Your firm's current published rules always win.
+
+<Warning>
+  CopyFlock doesn't read or enforce your firm's rules. Staying within them is your responsibility. CopyFlock isn't affiliated with or endorsed by any prop firm.
+</Warning>
+
+## Questions to answer for every firm
+
+1. **Are trade copiers allowed?** Some firms say so explicitly. Others only mention automated trading in general.
+2. **Is copying between accounts you own allowed?** This is usually the key question if you hold several accounts.
+3. **Is copying someone else's trades allowed?** This is often restricted even where copying your own accounts is fine.
+4. **How many accounts can you hold or trade at once?**
+5. **Is hedging across accounts allowed?** Holding a long in one account and a short in another is commonly banned. This matters if you use [reverse trades](/settings/orders#reverse-trades).
+6. **Do consistency or position-size rules apply per account?** Copying makes accounts trade alike, but each is judged on its own.
+7. **Are there rules on automation or news trading?**
+
+## Where to find the answers
+
+Firms publish their rules in their help center and in the terms you agreed to when you bought the account. Search for **copy trading**, **trade copier**, **multiple accounts**, **hedging**, **automated trading** and **prohibited practices**.
+
+If something is unclear, ask the firm's support in writing, by email or ticket, and keep the reply.
+
+Re-read the rules when you move from an evaluation to a funded account, when you buy accounts on a new plan, and every few months anyway.
+
+## CopyFlock settings that help
+
+| Rule area | CopyFlock setting | How to use it |
+| --- | --- | --- |
+| Hedging across accounts | [Reverse trades](/settings/orders#reverse-trades) | Leave it off for prop firm accounts unless opposite positions are clearly allowed. |
+| Maximum position size | [Max contracts](/settings/position-size#minimum-and-maximum-contracts) | Set each follower's maximum to its account limit. |
+| Drawdown and loss limits | [Account protection](/settings/account-protection) | Set a lower limit with a buffer above the drawdown level. |
+| Profit targets | [Account protection](/settings/account-protection) | Set an upper limit to stop an evaluation once it passes. |
+| News trading restrictions | [Pause](/dashboard/managing-accounts#pause-and-resume-copying), [symbol filter](/settings/symbol-filter) | Pause followers before restricted events. |
+| Trades without a stop | [Skip trades without a stop loss](/settings/orders#skip-trades-without-a-stop-loss-or-take-profit) | Only copy entries that have a stop. |
+| Copying other people | Account ownership | Only connect accounts that are yours. CopyFlock is built for copying your own trades. |
+
+CopyFlock has no daily loss limit or trading hours setting. Use account protection and pausing instead.
+
+## A safe default setup
+
+- Only copy between accounts that are yours.
+- Keep reverse trades off for prop firm accounts.
+- Set **Max contracts** on every follower to its account's limit.
+- Set account protection a little above each drawdown level, and raise it as trailing drawdowns move.
+- Keep **Copy stop loss** on so every follower carries a stop.
+- Re-read your firm's rules whenever your account type changes.

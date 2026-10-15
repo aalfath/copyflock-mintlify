@@ -1,0 +1,70 @@
+---
+title: "Symbol mapping"
+description: "Have a follower trade a different contract from the lead, such as MNQ when the lead trades NQ, with its own multiplier."
+icon: "right-left"
+---
+
+**Symbol mapping** lets a follower trade a different contract from the lead. The most common use is copying minis to micros: the lead trades NQ and the follower trades MNQ.
+
+CopyFlock never converts contracts on its own. Without a mapping, the follower trades the same contract as the lead.
+
+## Add a mapping
+
+In the follower's copy settings, under **Symbol mapping**:
+
+1. Click a preset, such as **NQ → MNQ ×10**, or click **Add mapping** to create your own.
+2. Enter the **lead symbol** (for example `NQ`) and the **follower symbol** (for example `MNQ`).
+3. Optionally enter a **multiplier**.
+
+Use the contract's root, such as `NQ`, not a dated contract such as `NQZ6`. A mapping for `NQ` matches every NQ contract month, and the follower trades the current front month.
+
+A follower can have a mapping for each market you trade, such as NQ → MNQ and ES → MES. Each lead symbol can be mapped once.
+
+### Presets
+
+| Preset | Market |
+| --- | --- |
+| NQ → MNQ ×10 | Nasdaq-100 |
+| ES → MES ×10 | S&P 500 |
+| YM → MYM ×10 | Dow |
+| RTY → M2K ×10 | Russell 2000 |
+| CL → MCL ×10 | Crude oil |
+| GC → MGC ×10 | Gold |
+
+## How the multiplier works
+
+<Info>
+  A mapping's multiplier **replaces** the follower's sizing method for that symbol. The follower trades the lead's contracts × the mapping multiplier.
+</Info>
+
+- **With a multiplier:** follower contracts = lead contracts × multiplier, rounded to whole contracts.
+- **Without a multiplier:** the follower's normal [sizing method](/settings/position-size) decides the size, and only the contract changes.
+
+**Min contracts** and **Max contracts** still apply in both cases.
+
+### Choosing a multiplier for minis to micros
+
+Each of these micros is one tenth the size of its mini. For example, MNQ is \$2 per point and NQ is \$20 per point.
+
+| Lead buys 2 NQ, mapping NQ → MNQ | Follower trades | Exposure compared with the lead |
+| --- | --- | --- |
+| ×10 | 20 MNQ | The same |
+| ×5 | 10 MNQ | Half |
+| ×2 | 4 MNQ | One fifth |
+| ×1 | 2 MNQ | One tenth |
+
+Whole-number multipliers keep partial exits clean. If the lead scales out of 1 NQ, a ×5 follower closes exactly 5 MNQ.
+
+### Micros to minis
+
+You can also map the other way, for example MNQ → NQ ×0.1, so 10 MNQ on the lead becomes 1 NQ on the follower.
+
+<Warning>
+  Be careful with rounding. 5 MNQ × 0.1 is half an NQ, and scaling out of 3 MNQ becomes 0.3 NQ, which can't be copied exactly. Only map micros to minis if the lead always trades in multiples of ten.
+</Warning>
+
+## Good to know
+
+- Stop loss and take profit orders are placed on the mapped contract.
+- Your prop firm may count micros differently towards position limits. Check before choosing a multiplier.
+- For a full walkthrough, see [Copy minis to micros](/guides/minis-to-micros).

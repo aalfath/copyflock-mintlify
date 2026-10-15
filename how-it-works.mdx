@@ -1,0 +1,64 @@
+---
+title: "How CopyFlock works"
+sidebarTitle: "How it works"
+description: "Leads, followers and what happens from the moment your lead trade fills to the copy landing on each follower account."
+icon: "diagram-project"
+---
+
+## Leads and followers
+
+Every copy setup has one **lead** and one or more **followers**.
+
+- The **lead** is the account you trade by hand. Use whatever app you like: NinjaTrader, R|Trader Pro, the Tradovate apps, TopstepX or anything else connected to that account.
+- A **follower** takes the lead's trades automatically. Each follower has its own copy settings, so it can trade a different size or a different contract from the lead.
+
+Followers don't have to be on the same platform or at the same firm as the lead. A Tradovate lead can copy to Rithmic and TopstepX followers, and any other combination works too.
+
+You can run more than one lead. Each follower copies exactly one lead.
+
+## What happens when the lead trades
+
+<Steps>
+  <Step title="You place a trade on the lead">
+    Use any app connected to the lead account. CopyFlock watches the account itself, not a chart or an add-on.
+  </Step>
+  <Step title="The order fills">
+    As soon as the lead's order fills, CopyFlock picks it up.
+  </Step>
+  <Step title="CopyFlock checks each follower">
+    It skips followers that are paused and trades that a follower's filters exclude, such as a symbol it shouldn't trade or a trade without a stop loss.
+  </Step>
+  <Step title="CopyFlock works out the size">
+    It applies the follower's sizing method, any symbol mapping and the minimum and maximum contracts, then rounds to whole contracts.
+  </Step>
+  <Step title="The order is sent to the follower">
+    If you've set a delay, CopyFlock waits first. The follower's stop loss and take profit are placed too, if you copy them.
+  </Step>
+  <Step title="You see the result">
+    The copy shows in your [logs](/dashboard/logs), and the dashboard updates the follower's position, balance, equity and P&L.
+  </Step>
+</Steps>
+
+Exits, adding to a position and partial closes follow the same path.
+
+<Info>
+  Each follower gets its own order after the lead fills, so its fill price can be slightly different from the lead's. This is most noticeable with market orders in fast markets.
+</Info>
+
+## What CopyFlock doesn't do
+
+- **It doesn't trade for you.** Followers only copy what you do on the lead.
+- **It doesn't undo changes you make on a follower.** If you close a follower position by hand, it stays closed, and the follower joins in again with the lead's next trade. See [If you step in on a follower by hand](/settings/orders#if-you-step-in-on-a-follower-by-hand).
+- **It doesn't enforce your prop firm's rules.** It gives you tools that help you stay inside them. See [Prop firm rules](/guides/prop-firm-rules).
+- **It has no daily loss limit or trading hours setting.** Use [account protection](/settings/account-protection) and pausing instead.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Copy your first trade in a few minutes.
+  </Card>
+  <Card title="Position size" icon="scale-balanced" href="/settings/position-size">
+    Choose how big each follower trades.
+  </Card>
+</CardGroup>

@@ -1,0 +1,34 @@
+---
+title: "Copy trades across platforms"
+sidebarTitle: "Across platforms"
+description: "Copy from Tradovate to Rithmic, Rithmic to TopstepX, or any other direction, with one lead and followers on different platforms and firms."
+icon: "shuffle"
+---
+
+A lead and its followers don't need to be on the same platform or at the same firm. CopyFlock copies futures between Tradovate, Rithmic and TopstepX in any direction.
+
+For example, you can trade a Tradovate account and copy it to Apex accounts on Rithmic and a Topstep account on TopstepX, all at the same time.
+
+## Set it up
+
+<Steps>
+  <Step title="Add the lead">
+    Click **Add account**, choose **Lead account** and connect it on its own platform.
+  </Step>
+  <Step title="Add each follower on its own platform">
+    Click **Add account**, choose **Follower account**, pick the lead and connect the follower on its platform. See [Tradovate](/connect/tradovate), [Rithmic](/connect/rithmic) or [TopstepX](/connect/topstepx).
+  </Step>
+  <Step title="Choose settings per follower">
+    Each follower has its own sizing, symbol mapping, limits and protection. See [Copy settings](/settings/position-size).
+  </Step>
+  <Step title="Test">
+    Place a 1-contract trade on the lead and check every follower in the [logs](/dashboard/logs).
+  </Step>
+</Steps>
+
+## Things to know
+
+- **Contract names are handled for you.** Each platform names contract months differently. CopyFlock trades the matching contract on each follower's platform. If you enter symbols yourself, in [symbol mapping](/settings/symbol-mapping) or the [symbol filter](/settings/symbol-filter), use the root such as `MNQ`.
+- **Fill prices can differ.** Each follower's order is placed on its own platform after the lead fills, so prices can be slightly different.
+- **Each platform has its own requirements.** TopstepX needs a ProjectX API subscription. Rithmic needs your username, password and system.
+- **Each firm has its own rules.** Check every firm's rules before copying between them. See [Prop firm rules](/guides/prop-firm-rules).

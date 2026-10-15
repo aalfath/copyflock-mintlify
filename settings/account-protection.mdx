@@ -1,0 +1,54 @@
+---
+title: "Account protection"
+description: "Close a follower's positions and pause copying when its balance or equity reaches a level you set, before it breaks a drawdown limit."
+icon: "shield-halved"
+---
+
+**Account protection** watches a follower's balance or equity. When it reaches a limit you set, CopyFlock closes all of the follower's positions and pauses copying to it.
+
+Use it to stop a follower before it breaks its drawdown limit, or to lock in an evaluation once it reaches its profit target.
+
+## Set it up
+
+In the follower's copy settings, under **Account protection**:
+
+1. For **Protection**, choose **Watch balance** or **Watch equity**.
+2. Enter a lower limit in **Stop at or below**, an upper limit in **Stop at or above**, or both.
+3. Save your settings.
+
+The upper limit must be above the lower limit.
+
+### Balance or equity?
+
+- **Balance** only changes when trades close.
+- **Equity** includes the profit and loss of open positions, so it reacts while a trade is still open.
+
+Most traders protect against drawdown with **equity**, because that's what most prop firms measure in real time.
+
+## Examples
+
+For a \$50,000 evaluation with a \$2,500 drawdown and a \$3,000 profit target:
+
+| Field | Value | Why |
+| --- | --- | --- |
+| **Protection** | Watch equity | Reacts while a trade is open. |
+| **Stop at or below** | 47,750 | \$250 above the \$47,500 drawdown level, to leave a buffer. |
+| **Stop at or above** | 53,000 | The profit target, so the evaluation stops once it's passed. |
+
+## What happens when a limit is reached
+
+1. CopyFlock closes all of the follower's open positions at market price.
+2. The follower is paused, so it doesn't copy new lead trades.
+3. The lead and your other followers carry on as normal.
+
+When you're ready to copy again, check the account, adjust the limits if needed, and click **Resume copying**. See [Managing accounts](/dashboard/managing-accounts#pause-and-resume-copying).
+
+<Warning>
+  **Trailing drawdowns move; your limits don't.** If your firm's drawdown trails your highest balance, its limit rises as you profit, but your **Stop at or below** level stays where you set it. Review your limits after good days and raise them to keep your buffer.
+</Warning>
+
+## Limitations
+
+- Positions are closed with market orders, so the final balance can land a little past your limit in a fast market. Leave a buffer.
+- CopyFlock has no daily loss limit or trading hours setting. Use account protection, pausing and the [symbol filter](/settings/symbol-filter) instead.
+- Protection applies to followers. To stop trading on the lead, stop trading it by hand.

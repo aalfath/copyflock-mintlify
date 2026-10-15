@@ -1,0 +1,79 @@
+---
+title: "Copy trades across your Apex accounts"
+sidebarTitle: "Apex accounts"
+description: "Step by step: connect your Apex Trader Funding accounts, pick a lead, choose sizes, add protection and run a test trade."
+icon: "layer-group"
+---
+
+This guide walks you through copying one Apex Trader Funding account to all your others. The same steps work for most prop firms.
+
+## Before you start
+
+1. **Read Apex's current rules** on trade copiers, how many accounts you can hold and trading across accounts. Rules change, and they always come first. See [Prop firm rules](/guides/prop-firm-rules).
+2. **List your accounts** with their size and platform. Apex accounts on Rithmic use the **Apex** system. Apex accounts on Tradovate sign in through Tradovate.
+3. **Decide which account leads.** Pick the one you want to trade by hand. Many traders lead from their furthest-along account.
+4. **Note each account's drawdown level and contract limit.** You'll use them for limits and protection.
+
+## Step 1: Connect your accounts
+
+Start your [free trial](/billing/free-trial). It covers 2 accounts, enough to test with a lead and one follower before you add the rest.
+
+- **Apex on Rithmic:** click **Add account**, choose **Rithmic**, pick the **Apex** system and enter the Rithmic username and password Apex sent you. See [Connect a Rithmic account](/connect/rithmic).
+- **Apex on Tradovate:** click **Add account**, choose **Tradovate** and sign in on Tradovate's page. See [Connect a Tradovate account](/connect/tradovate).
+
+Rithmic and Tradovate accounts can be mixed freely in the same setup.
+
+## Step 2: Choose a size for each follower
+
+| Your situation | Sizing method | Example |
+| --- | --- | --- |
+| All accounts are the same size | Contract multiplier at 1 | Lead 2 NQ → follower 2 NQ |
+| Follower is half the lead's size | Contract multiplier at 0.5 | Lead 2 NQ → follower 1 NQ |
+| Accounts of different sizes | Equity ratio | Lead \$100K, follower \$50K: lead 4 MNQ → follower 2 MNQ |
+| Follower should always trade the same amount | Fixed contracts | Always 1 NQ |
+
+Want some followers on micros? Add a [symbol mapping](/settings/symbol-mapping) such as NQ → MNQ.
+
+See [Position size](/settings/position-size) for every option.
+
+## Step 3: Add limits and protection
+
+On each follower:
+
+- **Max contracts**: the account's contract limit, so a large lead trade never oversizes it.
+- **Account protection**: choose **Watch equity** and set **Stop at or below** a little above the drawdown level. Optionally, set **Stop at or above** to the profit target. See [Account protection](/settings/account-protection).
+- **Copy stop loss** and **Copy take profit**: keep them on so every follower carries your bracket.
+- **Skip trades without a stop loss**: turn it on if you sometimes forget a stop on the lead.
+
+<Warning>
+  If an account's drawdown trails your highest balance, the drawdown level moves up as you profit, but your protection level doesn't. Raise it after good days.
+</Warning>
+
+## Step 4: Run a test trade
+
+During market hours, place 1 micro contract on the lead and close it a minute later. Then check:
+
+- The [logs](/dashboard/logs) show an open and a close for every follower.
+- Each follower's size is what you expected.
+- Stops and targets appear on followers.
+- Every follower is flat again afterwards.
+
+Once it looks right, add your other followers and trade normally.
+
+## Troubleshooting the first week
+
+<AccordionGroup>
+  <Accordion title="A follower didn't copy a trade">
+    It may be paused, by you or by account protection. The symbol may be excluded by its symbol filter, or the trade may have had no stop loss with **Skip trades without a stop loss** on. The size may also have rounded to less than half a contract. See [Troubleshooting](/troubleshooting).
+  </Accordion>
+  <Accordion title="A follower traded the wrong size">
+    Check the sizing method, any symbol mapping and the min and max contracts. Rounding to whole contracts explains most small differences, and Equity ratio sizes change as balances move.
+  </Accordion>
+  <Accordion title="A follower is out of step with the lead">
+    This usually happens after a change made by hand on the follower. Use [Close all positions](/dashboard/managing-accounts#close-all-positions) on the follower to flatten it. It joins in again with the lead's next trade.
+  </Accordion>
+</AccordionGroup>
+
+## What it costs
+
+Every connected account counts, the lead included: \$8 per account per month, or \$80 per account per year. A lead plus five followers is 6 accounts, \$48 a month. See [Free trial and pricing](/billing/free-trial).

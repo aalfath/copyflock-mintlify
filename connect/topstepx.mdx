@@ -1,0 +1,77 @@
+---
+title: "Connect a TopstepX account"
+sidebarTitle: "TopstepX"
+description: "Connect Topstep Trading Combines and funded accounts to CopyFlock with your TopstepX username and a ProjectX API key."
+icon: "link"
+---
+
+TopstepX accounts connect through the ProjectX API, using your TopstepX username and an API key.
+
+## Before you start
+
+<Warning>
+  You need an active **ProjectX API subscription** on your TopstepX login. It's a separate subscription, bought and billed through ProjectX, not CopyFlock. Without it, CopyFlock can't connect.
+</Warning>
+
+<Steps>
+  <Step title="Subscribe to API access">
+    In TopstepX, go to **Settings → API** and subscribe to API access.
+  </Step>
+  <Step title="Create an API key">
+    In the same place, create an API key and copy it. Keep it private, like a password.
+  </Step>
+</Steps>
+
+## Connect the account
+
+<Steps>
+  <Step title="Start adding an account">
+    In the dashboard, go to **Accounts** and click **Add account**. Choose **Lead account** or **Follower account** and click **Continue**.
+  </Step>
+  <Step title="Choose TopstepX">
+    Select **TopstepX**.
+  </Step>
+  <Step title="Enter your details">
+    Enter your TopstepX **Username or email** and your **ProjectX API key**. Click **Load accounts**.
+  </Step>
+  <Step title="Pick the trading account">
+    Choose the account you want to add. Its balance is shown next to it.
+  </Step>
+  <Step title="Finish">
+    For a follower, choose its [copy settings](/settings/position-size). Then name the account and click **Create account**.
+  </Step>
+</Steps>
+
+## Accounts you can't add
+
+Some accounts appear in the list but can't be selected:
+
+- **Live accounts can't be managed through the ProjectX API.** ProjectX doesn't allow third-party tools to trade them.
+- **Trading is disabled on this account.** The account is closed or blocked on Topstep's side.
+- **Already added to CopyFlock.** The account is already connected.
+
+## If the connection fails
+
+<AccordionGroup>
+  <Accordion title="TopstepX rejected this username or API key">
+    Check both. Your account email also works as the username. If you're unsure about the key, create a new one in **Settings → API**.
+  </Accordion>
+  <Accordion title="This login has no ProjectX API subscription">
+    Subscribe to API access in TopstepX under **Settings → API**, then try again.
+  </Accordion>
+  <Accordion title="API key sign-in is disabled for this login">
+    Enable it, or create a new key, in TopstepX under **Settings → API**.
+  </Accordion>
+  <Accordion title="This login has agreements to sign">
+    Log in to TopstepX, accept the agreements, then try again.
+  </Accordion>
+  <Accordion title="Too many attempts, or TopstepX did not respond">
+    Wait a minute, then try again.
+  </Accordion>
+</AccordionGroup>
+
+## Good to know
+
+- You don't need TopstepX open in your browser for copying to work. Open it only when you want to trade the lead.
+- TopstepX followers can copy a lead on Tradovate or Rithmic, and the other way round. See [Copy across platforms](/guides/cross-platform).
+- Topstep sets its own rules on copiers, hedging and position limits. Check them before you copy. See [Prop firm rules](/guides/prop-firm-rules).

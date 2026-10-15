@@ -1,0 +1,65 @@
+---
+title: "Connect a Tradovate account"
+sidebarTitle: "Tradovate"
+description: "Connect Tradovate and NinjaTrader brokerage accounts to CopyFlock by signing in on Tradovate's own page. No password sharing and no API add-on."
+icon: "link"
+---
+
+Tradovate accounts connect through Tradovate's own sign-in page. You type your password on Tradovate's site, not on CopyFlock's, and CopyFlock never sees it.
+
+This also covers:
+
+- **NinjaTrader brokerage accounts.** They run on the same system as Tradovate.
+- **Prop firm accounts on Tradovate.** These show as **Demo / prop** when you pick the account.
+
+You don't need to buy Tradovate API access.
+
+## Connect the account
+
+<Steps>
+  <Step title="Start adding an account">
+    In the dashboard, go to **Accounts** and click **Add account**. Choose **Lead account** or **Follower account** and click **Continue**.
+  </Step>
+  <Step title="Choose Tradovate">
+    Select **Tradovate** and click **Connect Tradovate**. A Tradovate window opens.
+  </Step>
+  <Step title="Sign in and approve access">
+    Sign in with the Tradovate login that owns the account and approve access. Your accounts appear in CopyFlock automatically.
+
+    If the Tradovate window stays open after you sign in, you can close it.
+  </Step>
+  <Step title="Pick the trading account">
+    Choose the account you want to add. Each one is labelled **Live** or **Demo / prop**.
+  </Step>
+  <Step title="Finish">
+    For a follower, choose its [copy settings](/settings/position-size). Then name the account and click **Create account**.
+  </Step>
+</Steps>
+
+## Accounts on more than one Tradovate login
+
+If your accounts are spread across several Tradovate logins, click **Connect another login** and sign in with the next one. Accounts from every login you connect appear in the same list.
+
+Once you've connected a login, you can add more of its accounts without signing in again.
+
+## When Tradovate asks you to sign in again
+
+Tradovate sometimes ends the connection, for example after you change your password. When that happens, the dashboard tells you which login needs to be authorised again. Sign in again with **Connect another login**.
+
+## Good to know
+
+- You can trade the lead from the Tradovate web, desktop or mobile app, NinjaTrader or any other app that places orders on the account.
+- Followers can be on Rithmic or TopstepX. See [Copy across platforms](/guides/cross-platform).
+- Check your prop firm's rules before copying. See [Prop firm rules](/guides/prop-firm-rules).
+
+<AccordionGroup>
+  <Accordion title="Does CopyFlock see my Tradovate password?">
+    No. You sign in on Tradovate's page, and Tradovate gives CopyFlock permission to use the account. To stop CopyFlock using an account, [remove it](/dashboard/managing-accounts#remove-an-account).
+  </Accordion>
+  <Accordion title="An account says Already added to CopyFlock">
+    That account is already connected. Each trading account can be added once.
+  </Accordion>
+  <Accordion title="I signed in, but no accounts show">
+    If the list says there are no active trading accounts yet, wait a few seconds and refresh. Make sure you signed in with the login that owns the account.
+  </Accordion>
+</AccordionGroup>

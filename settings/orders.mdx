@@ -1,0 +1,56 @@
+---
+title: "Order settings"
+sidebarTitle: "Orders"
+description: "Copy stop losses and take profits, skip trades without them, reverse trades, re-align positions after a restart and add a random delay."
+icon: "list-check"
+---
+
+The **Orders** section of a follower's copy settings controls what gets copied with each trade.
+
+## Copy take profit and stop loss
+
+| Setting | What it does | Default |
+| --- | --- | --- |
+| **Copy take profit** | Places the lead's take profit on this follower. | On |
+| **Copy stop loss** | Places the lead's stop loss on this follower. | On |
+
+When these are on, followers are protected the same way the lead is. When you move the stop or target on the lead, the follower's copy moves too.
+
+<Tip>
+  Keep **Copy stop loss** on for prop firm accounts, so every follower always carries a stop.
+</Tip>
+
+## Skip trades without a stop loss or take profit
+
+| Setting | What it does |
+| --- | --- |
+| **Skip trades without a take profit** | Only copies trades that have a take profit. |
+| **Skip trades without a stop loss** | Only copies trades that have a stop loss. |
+
+These are useful if you sometimes forget to add a bracket on the lead. They're also a good match for the [fixed risk sizing methods](/settings/position-size#fixed-risk-methods), which need a stop loss to work out the size.
+
+## Reverse trades
+
+**Reverse trades** makes the follower take the opposite side: it buys when the lead sells and sells when the lead buys. The stop loss and take profit are swapped to match.
+
+<Warning>
+  Many prop firms don't allow opposite positions across your accounts. Leave this off for prop firm accounts unless you're sure it's allowed. See [Prop firm rules](/guides/prop-firm-rules).
+</Warning>
+
+## Position resync
+
+A follower can briefly miss the lead's trades while it restarts, for example after you change its settings or click **Restart**, or while its connection drops. If the lead closes a position during that time, the follower's copy could be left open.
+
+With **Position resync** on, the follower checks against the lead when it starts and after a lost connection. It closes any copied position that the lead has already closed. With it off, those positions stay open until you close them.
+
+Position resync doesn't open new positions. A lead trade placed while the follower was offline isn't copied late.
+
+### If you step in on a follower by hand
+
+If you close a follower's position by hand, it stays closed. The follower joins in again with the lead's next trade. To flatten a follower completely, use [Close all positions](/dashboard/managing-accounts#close-all-positions).
+
+## Random delay
+
+**Random delay (max)** makes the follower wait a random time, up to the number of milliseconds you set, before each copy. For example, 2000 waits up to 2 seconds. 0 means no delay. The maximum is 60,000 (one minute).
+
+A delay means the follower's fill price can be further from the lead's.

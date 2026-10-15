@@ -1,0 +1,108 @@
+---
+title: "Managing accounts"
+description: "Add accounts, read their status, pause and resume copying, close all positions, change settings, move a follower to another lead and remove accounts."
+icon: "users"
+---
+
+Everything about your trading accounts happens on the **Accounts** page.
+
+## Two ways to view your accounts
+
+Switch between them with the toggle at the top of the page.
+
+- **Map** shows each lead with lines to its followers. Click an account to open its details.
+- **List** shows every account in a table, with its lead.
+
+The page header shows how many of your plan's account seats you're using.
+
+## Add an account
+
+Click **Add account** and follow the steps:
+
+1. **Role**: choose **Lead account** or **Follower account**. A follower needs a lead, so add your lead first. For a follower, pick the lead it should copy.
+2. **Broker account**: choose the platform and connect. See [Tradovate](/connect/tradovate), [Rithmic](/connect/rithmic) or [TopstepX](/connect/topstepx).
+3. **Copy settings** (followers only): choose the size and other settings. See [Copy settings](/settings/position-size).
+4. **Review**: name the account, for example "Apex 1" or "Main Tradovate", check the summary and click **Create account**.
+
+The new account takes a minute or two to start.
+
+If every seat on your plan is in use, you'll be asked to add seats on the **Billing** page first. See [Change the number of accounts](/billing/manage-subscription#change-the-number-of-accounts).
+
+## Account status
+
+Each account shows a status:
+
+| Status | What it means |
+| --- | --- |
+| **Copying** | Connected and copying. |
+| **Paused** | Copying is paused for this account, by you or by [account protection](/settings/account-protection). |
+| **Connecting** | Connecting to the broker. |
+| **Syncing** | Syncing positions with the broker. |
+| **Starting** | Starting up. This takes a minute or two. |
+| **Waiting** | Running, waiting for its first status report. |
+| **Disconnected** | The broker connection dropped. It retries automatically. |
+| **Stopped** | Not running. Try [restarting it](#restart-an-account). |
+
+Open an account to see its **Balance**, **Equity** and **Open P&L**, and the lead it copies.
+
+## Pause and resume copying
+
+Open the account and click **Pause copying**. New lead trades aren't copied to it until you click **Resume copying**.
+
+Pausing doesn't close the account's open positions. To flatten it too, use [Close all positions](#close-all-positions).
+
+Pause and close all become available once the account has reported in.
+
+## Close all positions
+
+Open the account and click **Close all positions**. Tick the box to confirm, then click **Close all**.
+
+This sends market orders to close every open position on the account and cancels its working orders. It can't be undone.
+
+<Warning>
+  If you close all on a **lead**, your followers copy the closes too.
+</Warning>
+
+## See open positions
+
+Open the account and go to the **Positions** tab. Click **Load positions** to fetch the account's open positions from the broker, and **Refresh** to update them.
+
+## Change an account's settings
+
+Open the account and go to the **Settings** tab. You can change:
+
+- The **Account name**.
+- For followers, the lead it copies (**Copies lead**) and all its [copy settings](/settings/position-size).
+
+Click **Save changes**. The account restarts with the new settings in about a minute.
+
+## Move a follower to another lead
+
+Choose one of these:
+
+- In the follower's **Settings** tab, pick a different lead under **Copies lead** and save.
+- In the **Map** view, drag from a lead's handle to the follower.
+
+The follower restarts and copies the new lead in about a minute. Its open positions aren't closed.
+
+## Restart an account
+
+Open the account and click **Restart**. It reconnects in about a minute.
+
+Try this if an account shows **Stopped** or **Disconnected** for a long time, or after you [update a Rithmic password](/connect/rithmic#update-your-rithmic-password).
+
+Lead trades placed while a follower restarts aren't copied late. If the lead closes a position during the restart, the follower closes its copy only if [Position resync](/settings/orders#position-resync) is on.
+
+## Remove an account
+
+Open the account, go to the **Remove** tab and click **Remove account**. Type the account's name to confirm, then click **Remove**.
+
+- Copying stops on that account and its seat is freed.
+- **Open positions stay open at the broker.** Close them first if you want to be flat.
+- If you remove a lead, its followers stop copying until you move them to another lead.
+
+Removing an account can't be undone. To use it again, add it again.
+
+## When your subscription isn't active
+
+If your trial or subscription has ended or a payment failed, accounts can't copy or be changed. Your accounts and settings are kept. Go to **Billing** to start a plan again. See [Manage your subscription](/billing/manage-subscription).
